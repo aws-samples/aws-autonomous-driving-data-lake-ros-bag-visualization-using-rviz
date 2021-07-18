@@ -1,4 +1,4 @@
-## AWS Autonomous Driving Datalake: Rosbag visualization using RVIZ on EC2
+# RVIZ Infra
 
 Simple bootstrapper project to
 1. Deploy EC2 Instance
@@ -6,14 +6,14 @@ Simple bootstrapper project to
 3. Install RViz + Ros tooling
 4. Download and setup [Ford AV Data](https://github.com/Ford/AVData)
 
-### Prerequisites
+## Prerequisites
 - Nodejs
 
-### Bootstrap (run first time)
+## Bootstrap
 1. `npm install`
-2. `npm run project-bootstrap` // Configures cdk.json context and creates SSM Parameters
+2. `npm run project-bootstrap` // Configures cdk.json context and creates SSM Parameter / EC2 Key
 
-### Deploying and Running
+## Deploying and Running
 1. Ensure you've run the bootstrapping scripts above and check your values in `cdk.json`
 2. `$ cdk deploy" `
 3. Wait for the bootstrapping to finish. This can take up to 15 minutes.
@@ -30,8 +30,8 @@ To see the progress:
 2. `cd ~/catkin_ws`
 3. Run `./0-run-all.sh` to launch the demo
 
-### Resources
-- [Setup GUI on EC2](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/)
+## Resources
+- [Setup GUI on EC2]()https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/)
 - [Add ROS package registry](http://wiki.ros.org/melodic/Installation/Ubuntu#Installation.2BAC8-Ubuntu.2BAC8-Sources.Setup_your_sources.list)
 - [Setup VNC](https://www.teknotut.com/en/install-vnc-server-with-gnome-display-on-ubuntu-18-04/)
 - [ROS Tooling](http://wiki.ros.org/catkin/Tutorials/create_a_workspace)
@@ -49,11 +49,3 @@ To see the progress:
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
-
-## Security
-
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
-
-## License
-
-This library is licensed under the MIT-0 License. See the LICENSE file.
