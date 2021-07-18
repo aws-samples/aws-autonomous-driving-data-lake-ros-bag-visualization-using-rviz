@@ -6,6 +6,10 @@ Simple bootstrapper project to
 3. Install RViz + Ros tooling
 4. Download and setup [Ford AV Data](https://github.com/Ford/AVData)
 
+### Architecture
+
+![architecture](docs/architecture.jpg)
+
 ### Prerequisites
 - Nodejs
 
