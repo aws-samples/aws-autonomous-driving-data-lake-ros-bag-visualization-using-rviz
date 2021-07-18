@@ -51,7 +51,7 @@ const bootstrap = async () => {
         const account = await getInput("AWS Account", cdkJson.context.account)
         const region = await getInput("AWS Region", cdkJson.context.region)
         const ssmParameterPath = await getInput("VNC Password parameter path in SSM", cdkJson.context.ssm.parameterPath)
-        const vpcId = await getInput("VPC ID (Set to 'create' to generate a new one)", cdkJson.context.vpc.id)
+        const vpcId = await getInput("VPC ID (requires private subnet) (Set to 'create' to generate a new one)", cdkJson.context.vpc.id)
         const stackName = await getInput("Stack Name", cdkJson.context.stackName)
         const instanceType = await getInput("EC2 Instance Type", cdkJson.context.ec2.instanceType)
         const rootVolumeSize = await getInput("EC2 Root volume size in GB", cdkJson.context.ec2.blockDevices.rootVolumeSize)
@@ -77,7 +77,7 @@ const bootstrap = async () => {
             }
 
             try {
-                const output = JSON.parse(await execCommand(`aws ssm put-parameter --name "${ssmParameterPath}" --value "${vncPassword}" --type "SecureString" --overwrite`))
+                const output = JSON.parse(await execCommand(`aws ssm --region ${region} put-parameter --name "${ssmParameterPath}" --value "${vncPassword}" --type "SecureString" --overwrite`))
                 cdkJson.context.ssm.parameterVersion = output["Version"]
                 console.log(`Created ssm parameter version ${cdkJson.context.ssm.parameterVersion}: https://${region}.console.aws.amazon.com/systems-manager/parameters${ssmParameterPath}/description`)
 

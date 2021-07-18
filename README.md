@@ -15,15 +15,22 @@ Simple bootstrapper project to
 
 ### Deploying and Running
 1. Ensure you've run the bootstrapping scripts above and check your values in `cdk.json`
-2. `$ cdk deploy" `
+2. `$ npm run cdk deploy" `
 3. Wait for the bootstrapping to finish. This can take up to 15 minutes.
 To see the progress:
-    - SSH into the machine: `$ ./ssm.sh ssh`
+    - SSH into the machine: `$ ./ssm.sh ssh` (If you encounter "is not connected error see below")
     - Switch to ubuntu user: `$ sudo su ubuntu`
-    - Tail the log: `$ tail -f /var/log/cloud-init-output.log`
+    - Tail the log and wait for user-data script to finish: `$ tail -f /var/log/cloud-init-output.log`
 4. Run port forwarding to connect via VNC
     - `$ ./ssm.sh vnc`
 5. Use your VNC client to connect to `vnc://localhost:5901` using the password set during bootstrpping.
+
+#### SSM TargetNotConnected Error
+
+Follow the troubleshooting guide [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-troubleshooting.html#ssh-target-not-connected) for this specific error
+
+In some cases, an outdated version of SSM could be the cause. To update SSM on the instance you can use the following guide [SSM Run Command Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/mw-walkthrough-console.html#mw-walkthrough-console-register-task)
+
 
 ### Run RVIZ with Ford Demo Data
 1. On the VNC session GUI open a new terminal

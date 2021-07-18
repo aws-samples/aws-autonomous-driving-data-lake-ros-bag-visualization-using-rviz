@@ -9,7 +9,7 @@
     "installSampleData": true,
     "ssm": {
       "parameterPath": "/avindustrykit/rviz/vnc/password",
-      "parameterVersion": 8,
+      "parameterVersion": 1,
       "kmsKeyAlias": "aws/ssm",
       "ubuntuAmi": "/aws/service/canonical/ubuntu/server/18.04/stable/current/amd64/hvm/ebs-gp2/ami-id"
     },
@@ -23,7 +23,7 @@
       }
     },
     "vpc": {
-      "useExisting": false,
+      "useExisting": true,
       "id": ""
     }
   }
