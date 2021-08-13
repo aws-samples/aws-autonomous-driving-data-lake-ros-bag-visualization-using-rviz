@@ -10,6 +10,19 @@ Simple bootstrapper project to
 
 ![architecture](docs/architecture.jpg)
 
+### Project Structure
+
+```
+├── Config
+├── README.md # Helper file with instructions on how to use the app
+├── bootstrap.js # Bootstrapping script to help you configure your app settings
+├── cdk.json # CDK configuration file, includes settings created by bootstrap.js
+├── index.ts # CDK app and stack file
+├── ssm.sh # Shell script to start SSM Port forwarding session to your machine
+└── user-data
+    └── rviz-setup.sh # Script executed on EC2 first boot. Sets up VNC + RVIZ
+```
+
 ### Prerequisites
 - Nodejs
 
