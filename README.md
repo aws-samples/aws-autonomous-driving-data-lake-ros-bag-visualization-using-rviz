@@ -85,7 +85,7 @@ See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more inform
 
 This project uses SSM Parameter Store Secure Strings to store the VNC password which is read only once when executing the [user-data](./user-data/rviz-setup.sh) bootstrap script. 
 
-SecureString parameter values are encrypted using KMS. For more information see the following guide on [how AWS Systems Manager Parameter Store uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)
+SecureString parameter values are encrypted using KMS. For more information see the following guide on [how AWS Systems Manager Parameter Store uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html).
 
 Since we do not require advanced features provided by [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/)  such as password generation, rotation or cross account access, SecureString parameters are sufficient.
 
