@@ -42,6 +42,9 @@ To see the progress:
     - `$ ./ssm.sh vnc`
 5. Use your VNC client to connect to `vnc://localhost:5901` using the password set during bootstrpping.
 
+
+## Troubleshooting:
+
 #### SSM TargetNotConnected Error
 
 Follow the troubleshooting guide [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-troubleshooting.html#ssh-target-not-connected) for this specific error
@@ -77,6 +80,15 @@ In some cases, an outdated version of SSM could be the cause. To update SSM on t
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+
+### SSM Parameter Store SecureStrings vs. Secrets Manager
+
+This project uses SSM Parameter Store Secure Strings to store the VNC password which is read only once when executing the [user-data](./user-data/rviz-setup.sh) bootstrap script. 
+
+SecureString parameter values are encrypted using KMS. For more information see the following guide on [How AWS Systems Manager Parameter Store uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)
+
+Since we do not require advanced features provided by [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) features such as password generation, rotation or cross account access, SecureString parameters are sufficient.
+
 
 ## License
 
